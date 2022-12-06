@@ -3,14 +3,18 @@ trigger:
 - '*'
 
 pool:
-  vmImage: 'ubuntu-22.04'
+  vmImage: 'ubuntu-20.04'
   demands:
   - npm
+
+variables:
+  buildConfiguration: 'Release'
 
 steps:
 - task: UseDotNet@2
   displayName: 'Use .NET SDK 6.x'
   inputs:
+    packageType: sdk
     version: '6.x'
 
 - task: Npm@1
